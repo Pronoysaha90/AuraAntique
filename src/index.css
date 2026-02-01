@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AuraAntique Jewelry Design System - Luxury Antique Inspired */
+
+@layer base {
+  :root {
+    /* Core Colors - Deep Burgundy & Gold Palette */
+    --background: 20 10% 6%;
+    --foreground: 45 30% 95%;
+    
+    --card: 20 12% 9%;
+    --card-foreground: 45 30% 95%;
+    
+    --popover: 20 12% 9%;
+    --popover-foreground: 45 30% 95%;
+    
+    /* Primary - Deep Burgundy/Maroon */
+    --primary: 350 45% 25%;
+    --primary-foreground: 45 30% 95%;
+    
+    /* Secondary - Rich Gold */
+    --secondary: 42 80% 45%;
+    --secondary-foreground: 20 10% 6%;
+    
+    /* Muted - Dark Burgundy */
+    --muted: 350 25% 15%;
+    --muted-foreground: 45 20% 65%;
+    
+    /* Accent - Warm Gold */
+    --accent: 42 75% 50%;
+    --accent-foreground: 20 10% 6%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 45 30% 95%;
+    
+    --border: 42 30% 20%;
+    --input: 42 30% 20%;
+    --ring: 42 75% 50%;
+    
+    --radius: 0.375rem;
+    
+    /* Custom Tokens */
+    --gold: 42 80% 55%;
+    --gold-light: 42 70% 70%;
+    --gold-dark: 42 85% 35%;
+    --burgundy: 350 45% 25%;
+    --burgundy-light: 350 40% 35%;
+    --burgundy-dark: 350 50% 15%;
+    --cream: 45 30% 92%;
+    --velvet: 350 30% 12%;
+    
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(42, 80%, 55%) 0%, hsl(42, 70%, 40%) 100%);
+    --gradient-burgundy: linear-gradient(180deg, hsl(350, 45%, 25%) 0%, hsl(350, 50%, 15%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsla(20, 10%, 6%, 0.7) 0%, hsla(350, 45%, 15%, 0.9) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(20, 12%, 12%) 0%, hsl(20, 12%, 8%) 100%);
+    
+    /* Shadows */
+    --shadow-gold: 0 4px 20px -5px hsla(42, 80%, 55%, 0.3);
+    --shadow-card: 0 8px 30px -10px hsla(0, 0%, 0%, 0.5);
+    --shadow-elevated: 0 20px 50px -15px hsla(0, 0%, 0%, 0.6);
+    
+    /* Sidebar */
+    --sidebar-background: 20 12% 9%;
+    --sidebar-foreground: 45 30% 95%;
+    --sidebar-primary: 42 80% 55%;
+    --sidebar-primary-foreground: 20 10% 6%;
+    --sidebar-accent: 350 45% 25%;
+    --sidebar-accent-foreground: 45 30% 95%;
+    --sidebar-border: 42 30% 20%;
+    --sidebar-ring: 42 75% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Typography Classes */
+  .heading-display {
+    @apply font-display text-5xl md:text-6xl lg:text-7xl font-light tracking-tight;
+  }
+  
+  .heading-section {
+    @apply font-display text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight;
+  }
+  
+  .heading-card {
+    @apply font-display text-xl md:text-2xl font-medium;
+  }
+  
+  .text-label {
+    @apply text-xs uppercase tracking-[0.2em] font-medium;
+  }
+  
+  /* Gold Shimmer Effect */
+  .text-gold {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(135deg, hsl(42, 80%, 55%) 0%, hsl(42, 70%, 70%) 50%, hsl(42, 80%, 55%) 100%);
+  }
+  
+  /* Card Styles */
+  .card-luxury {
+    @apply bg-gradient-to-b from-card to-muted rounded-lg border border-border/50 overflow-hidden;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .card-product {
+    @apply bg-card rounded-lg border border-border/30 overflow-hidden transition-all duration-500;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .card-product:hover {
+    @apply border-accent/40;
+    box-shadow: var(--shadow-elevated);
+    transform: translateY(-8px);
+  }
+  
+  /* Button Styles */
+  .btn-gold {
+    @apply relative px-8 py-3 font-medium text-sm tracking-wide overflow-hidden transition-all duration-300;
+    background: var(--gradient-gold);
+    color: hsl(20, 10%, 6%);
+    box-shadow: var(--shadow-gold);
+  }
+  
+  .btn-gold:hover {
+    box-shadow: 0 6px 30px -5px hsla(42, 80%, 55%, 0.5);
+    transform: translateY(-2px);
+  }
+  
+  .btn-outline-gold {
+    @apply px-8 py-3 font-medium text-sm tracking-wide border-2 transition-all duration-300;
+    border-color: hsl(42, 80%, 55%);
+    color: hsl(42, 80%, 55%);
+  }
+  
+  .btn-outline-gold:hover {
+    background: hsl(42, 80%, 55%);
+    color: hsl(20, 10%, 6%);
+  }
+  
+  /* Section Styles */
+  .section-padding {
+    @apply py-20 md:py-28 lg:py-32;
+  }
+  
+  /* Sale Badge */
+  .badge-sale {
+    @apply absolute top-4 left-4 px-3 py-1 text-xs font-semibold uppercase tracking-wider;
+    background: hsl(350, 45%, 25%);
+    color: hsl(45, 30%, 95%);
+  }
+  
+  /* Category Card */
+  .category-card {
+    @apply relative overflow-hidden rounded-lg aspect-square cursor-pointer;
+  }
+  
+  .category-card::after {
+    content: '';
+    @apply absolute inset-0 transition-opacity duration-500;
+    background: linear-gradient(180deg, transparent 40%, hsla(20, 10%, 6%, 0.9) 100%);
+  }
+  
+  .category-card:hover::after {
+    background: linear-gradient(180deg, transparent 30%, hsla(350, 45%, 15%, 0.95) 100%);
+  }
+  
+  /* Stat Card */
+  .stat-value {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl font-light;
+    color: hsl(42, 80%, 55%);
+  }
+  
+  /* Testimonial Card */
+  .testimonial-card {
+    @apply bg-gradient-to-br from-muted/50 to-card/50 backdrop-blur-sm rounded-xl p-8 border border-border/30;
+  }
+  
+  /* Newsletter Input */
+  .newsletter-input {
+    @apply bg-transparent border-b-2 border-border/50 px-0 py-3 text-foreground placeholder:text-muted-foreground focus:border-accent focus:outline-none transition-colors;
+  }
+  
+  /* Animation Utilities */
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+  
+  /* Image Zoom on Hover */
+  .img-zoom {
+    @apply transition-transform duration-700 ease-out;
+  }
+  
+  .group:hover .img-zoom {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, hsl(42, 80%, 55%) 0%, hsl(42, 70%, 70%) 50%, hsl(42, 80%, 55%) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(20, 10%, 6%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(42, 30%, 25%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(42, 80%, 55%);
+}
